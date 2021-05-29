@@ -32,7 +32,13 @@ async def ping(ctx):
     
     
     
-    
+#Weather Command returns weather based on location argument
+@botClient.command()
+async def bigweather(ctx, *, place):
+    weathermgr = owm.weather_manager()
+    observation = weathermgr.weather_at_place(f'{place},us')
+    weather = observation.weather
+    await ctx.send(f'status: {weather.status}\nTemp: {weather.temp}\nHumidity: {weather.humidity}\n')
     
     
     
