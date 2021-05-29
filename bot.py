@@ -54,7 +54,17 @@ async def music(ctx,*, push):
     if push=="stop":
         for x in botClient.voice_clients:
             await x.disconnect(
-    
+
+#Rock Paper Scissors
+@botClient.command(aliases=['rpx'])
+async def rock_paper_scissors(ctx, *, userPick):
+    botPicks=['Rock',
+             'Paper',
+             'Scissors',
+             'Rock',
+             'Paper',
+             'Scissors']
+    await ctx.send(f'Your Choice: {userPick}\nNeoliberal Bot\'s Choice: {random.choice(botPicks)}')   
     
     
 botClient.run('ODQ4MjMxMjUzNzc3MzE3OTA4.YLJm6g.92A0MZxnB-lHiZR6yZeb5YePX-k')
