@@ -21,7 +21,7 @@ async def on_ready():
 @botClient.command()
 async def bighelp(ctx):
     await ctx.send(
-        ' !ping\n'
+        ' !ping\n !bigweather <city>\n !music <play>,<stop>\n'
         )
 
 
