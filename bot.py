@@ -24,6 +24,11 @@ async def bighelp(ctx):
         ' !ping\n'
         )
 
+
+#Ping Command posts latency in chat
+@botClient.command()
+async def ping(ctx):
+    await ctx.send(f'latency: {round(botClient.latency*1000)}ms')
     
     
     
