@@ -72,9 +72,8 @@ async def rock_paper_scissors(ctx, *, userPick):
     
 
 @botClient.command()
-async def quote(ctx, *, symbol):
-    quote = stockInfo.get_quote_data(str(symbol))
-    getQuote= str(round(stockInfo.get_live_price(str(symbol)),2)) +"(" +str(round(quote["regularMarketChangePercent"],2)) + ")" +"%"
+async def quote(ctx, *, symbol): 
+    getQuote = stockInfo.get_live_price(symbol)
     await ctx.send(getQuote)
     
     
