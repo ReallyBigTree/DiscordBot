@@ -24,7 +24,7 @@ async def on_ready():
 @botClient.command()
 async def bighelp(ctx):
     await ctx.send(
-        ' !ping\n !bigweather <city>\n !music <play>,<stop>\n'
+        ' !ping\n !bigweather <city>\n !music <play>,<stop>\n !quote <symbol>'
         )
 
 
@@ -74,7 +74,7 @@ async def rock_paper_scissors(ctx, *, userPick):
 @botClient.command()
 async def quote(ctx, *, symbol):
     quote = stockInfo.get_quote_data(str(symbol))
-    getQuote= str(round(stockInfo.get_live_price(str(symbol)),2)) +"("+str(round(quote["regularMarketChangePercent"],2))+")"+"%"
+    getQuote= str(round(stockInfo.get_live_price(str(symbol)),2)) +"(" +str(round(quote["regularMarketChangePercent"],2)) + ")" +"%"
     await ctx.send(getQuote)
     
     
