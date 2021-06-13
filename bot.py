@@ -4,6 +4,9 @@ import pyowm
 import glob
 import ffmpeg
 import asyncio
+from yahoo_fin import stock_info as stockInfo
+
+
 
 
 #Initializes bot with command prefix.
@@ -53,7 +56,7 @@ async def music(ctx,*, push):
                 await asyncio.sleep(1)
     if push=="stop":
         for x in botClient.voice_clients:
-            await x.disconnect(
+            await x.disconnect()
 
 #Rock Paper Scissors
 @botClient.command(aliases=['rpx'])
@@ -65,6 +68,14 @@ async def rock_paper_scissors(ctx, *, userPick):
              'Paper',
              'Scissors']
     await ctx.send(f'Your Choice: {userPick}\nNeoliberal Bot\'s Choice: {random.choice(botPicks)}')   
+    
+    
+
+@botClient.command()
+async def quote(ctx, *, symbol):
+    quote = stockInfo.get_quote_data(str(symbol))
+    getQuote= str(round(stockInfo.get_live_price(str(symbol)),2)) +"("+str(round(quote["regularMarketChangePercent"],2))+")"+"%"
+    await ctx.send(getQuote)
     
     
 botClient.run('ODQ4MjMxMjUzNzc3MzE3OTA4.YLJm6g.92A0MZxnB-lHiZR6yZeb5YePX-k')
