@@ -74,7 +74,7 @@ async def rock_paper_scissors(ctx, *, userPick):
 @botClient.command()
 async def quote(ctx, *, symbol): 
     getQuote = stockInfo.get_live_price(symbol)
-    await ctx.send(getQuote)
+    await ctx.send(round(getQuote, 2))
     
     
 botClient.run('ODQ4MjMxMjUzNzc3MzE3OTA4.YLJm6g.92A0MZxnB-lHiZR6yZeb5YePX-k')
