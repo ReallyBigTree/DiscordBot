@@ -82,6 +82,11 @@ async def quote(ctx, *, symbol):
 async def gainers(ctx):
     dailyGainer = stockInfo.get_day_gainers()
     await ctx.send(dailyGainer)
+
+@botClient.command()
+async def losers(ctx):
+    dailyLoser = stockInfo.get_day_losers()
+    await ctx.send(dailyLoser)
     
     
     
