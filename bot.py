@@ -4,8 +4,6 @@ import pyowm
 import glob
 import ffmpeg
 import asyncio
-from yahoo_fin import stock_info as stockInfo, stock_info
-from yahoo_finance import Share as shareInfo
 
 
 
@@ -73,21 +71,4 @@ async def rock_paper_scissors(ctx, *, userPick):
     
     
 
-@botClient.command()
-async def quote(ctx, *, symbol): 
-    getQuote = stockInfo.get_live_price(symbol)
-    await ctx.send(symbol + "\n$" + str(round(getQuote, 2)))
-    
-@botClient.command()
-async def gainers(ctx):
-    dailyGainer = stockInfo.get_day_gainers()
-    await ctx.send(dailyGainer)
-
-@botClient.command()
-async def losers(ctx):
-    dailyLoser = stockInfo.get_day_losers()
-    await ctx.send(dailyLoser)
-    
-    
-    
 botClient.run('ODQ4MjMxMjUzNzc3MzE3OTA4.YLJm6g.92A0MZxnB-lHiZR6yZeb5YePX-k')
